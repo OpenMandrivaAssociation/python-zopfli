@@ -3,7 +3,7 @@
 
 Name:		python-%{pypi_name}
 Version:	0.1.7
-Release:	2
+Release:	3
 Summary:	Zopfli module for python
 Group:		Development/Python
 License:	ASL
