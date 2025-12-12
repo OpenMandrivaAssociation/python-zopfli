@@ -12,6 +12,7 @@ Source0:	https://files.pythonhosted.org/packages/source/z/%{pypi_name}/%{pypi_na
 
 BuildRequires:	pkgconfig
 BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(setuptools-scm)
 BuildRequires:	python%{pyver}dist(wheel)
