@@ -1,15 +1,14 @@
-# Created by pyp2rpm-3.3.3
-%global pypi_name zopfli
+%define module zopfli
 
-Name:		python-%{pypi_name}
-Version:	0.4.0
+Name:		python-zopfli
+Version:	0.4.1
 Release:	1
-Summary:	Zopfli module for python
+Summary:	Zopfli  for python
 Group:		Development/Python
 License:	Apache-2.0
 URL:		https://github.com/obp/py-zopfli
-Source0:	https://files.pythonhosted.org/packages/source/z/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-
+Source0:	https://files.pythonhosted.org/packages/source/z/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+BuildSystem:	python
 BuildRequires:	pkgconfig
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(pip)
@@ -21,20 +20,15 @@ BuildRequires:	%{_lib}zopfli-devel
 %description
 pyzopfli is a straight forward wrapper around zopfli's ZlibCompress method.
 
-%prep
-%autosetup -n %{pypi_name}-%{version}
-
+%prep -a
 # Remove bundled egg-info
-rm -rf src/%{pypi_name}.egg-info/
+rm -rf src/%{module}.egg-info/
 
-%build
-%py_build
-
-%install
-%py_install
+%build -p
+export LDFLAGS="%{ldflags} -lpython%{pyver}"
 
 %files
 %doc README.rst
-%dir %{python_sitearch}/%{pypi_name}
-%{python_sitearch}/%{pypi_name}/*
-%{python_sitearch}/%{pypi_name}-%{version}*.dist-info
+%dir %{python_sitearch}/%{module}
+%{python_sitearch}/%{module}/*
+%{python_sitearch}/%{module}-%{version}*.dist-info
