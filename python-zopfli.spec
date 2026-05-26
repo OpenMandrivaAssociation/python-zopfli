@@ -1,13 +1,14 @@
 %define module zopfli
 
 Name:		python-zopfli
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
-Summary:	Zopfli  for python
+Summary:	Zopfli for python
 Group:		Development/Python
 License:	Apache-2.0
-URL:		https://github.com/obp/py-zopfli
+URL:		https://github.com/fonttools/py-zopfli
 Source0:	https://files.pythonhosted.org/packages/source/z/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
 BuildSystem:	python
 BuildRequires:	pkgconfig
 BuildRequires:	pkgconfig(python)
@@ -15,7 +16,7 @@ BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(setuptools-scm)
 BuildRequires:	python%{pyver}dist(wheel)
-BuildRequires:	%{_lib}zopfli-devel
+BuildRequires:	cmake(zopfli)
 
 %description
 pyzopfli is a straight forward wrapper around zopfli's ZlibCompress method.
